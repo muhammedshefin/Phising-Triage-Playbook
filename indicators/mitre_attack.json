@@ -1,0 +1,19 @@
+{
+  "case_id": "KAG-CEAS08-001",
+  "dataset_status": "historical_dataset_record",
+  "framework": "MITRE ATT&CK Enterprise",
+  "mapping_note": "The selected record contains a spam label and a body URL, but no verified phishing behavior, credential capture, attachment execution, or post-compromise activity. No technique is confirmed from this evidence alone.",
+  "techniques": [],
+  "not_mapped": [
+    {
+      "candidate": "Spearphishing Link",
+      "technique_id": "T1566.002",
+      "reason": "A message body contains a URL, but the available row does not establish targeted spearphishing or that the URL was malicious."
+    },
+    {
+      "candidate": "Web Portal Capture",
+      "technique_id": "T1056.003",
+      "reason": "No landing page, credential collection behavior, or victim interaction is included in the dataset record."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "case_id": "KAG-CEAS08-001",
+  "source": {
+    "dataset": "Phishing Email Dataset",
+    "publisher": "Naser Abdullah Alam",
+    "url": "https://www.kaggle.com/datasets/naserabdullahalam/phishing-email-dataset",
+    "file": "CEAS_08.csv",
+    "record_reference": "Kaggle data preview row: Linwood Sloan, dated Tue, 05 Aug 2008 20:27:34 -0300",
+    "license": "CC BY-SA 4.0"
+  },
+  "dataset_label": {
+    "field": "label",
+    "value": 1,
+    "interpretation": "spam-labeled by the dataset; this label is not an independent current reputation verdict"
+  },
+  "handling_notice": "Values below are extracted from the dataset preview record. The URL/domain are not independently verified as currently malicious. Do not visit the URL from a production environment or add it to production controls without separate validation.",
+  "indicators": [
+    {
+      "id": "KAG-CEAS08-URL-001",
+      "type": "url",
+      "value": "http://somateco.com.br/folderz/ready.php",
+      "defanged": "hxxp://somateco[.]com[.]br/folderz/ready[.]php",
+      "role": "URL present in the selected spam-labeled message body",
+      "source_field": "body",
+      "dataset_url_count": 1,
+      "first_observed": "2008-08-05T20:27:34-03:00",
+      "confidence": "high",
+      "status": "dataset_observed_not_independently_verified",
+      "recommended_handling": "Defanged for display; enrich passively and validate before any production block"
+    },
+    {
+      "id": "KAG-CEAS08-DOM-001",
+      "type": "domain",
+      "value": "somateco.com.br",
+      "defanged": "somateco[.]com[.]br",
+      "role": "Host extracted from the body URL",
+      "source_field": "body",
+      "confidence": "high",
+      "status": "dataset_observed_not_independently_verified",
+      "recommended_handling": "Not a confirmed malicious domain; do not block without independent validation"
+    }
+  ],
+  "non_ioc_context": [
+    {
+      "type": "sender_domain",
+      "value": "goline.ca",
+      "source_field": "sender",
+      "context": "Domain parsed from Linwood Sloan <Linwood@goline.ca>; the record does not establish maliciousness."
+    }
+  ],
+  "not_present_in_record": {
+    "ipv4": [],
+    "ipv6": [],
+    "attachment": null,
+    "sha256": null,
+    "raw_headers": null,
+    "spf": null,
+    "dkim": null,
+    "dmarc": null,
+    "received_hops": null,
+    "note": "The dataset preview does not contain these fields. Null/empty values mean unavailable, not clean or malicious."
+  },
+  "attack_vectors": [
+    {
+      "vector": "unsolicited_promotional_email_with_url",
+      "details": "Dataset preview body advertises celebrity content and includes one URL.",
+      "evidence_status": "body excerpt observed; URL reputation and behavior not independently verified"
+    }
+  ]
+}
